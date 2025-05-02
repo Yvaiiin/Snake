@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +5,28 @@
   <title>Canvas Ripple Effect</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+      height: 100%;
+    }
     canvas {
       display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
+      border: none;
     }
   </style>
 </head>
 <body>
   <canvas id="c"></canvas>
 
-  <!-- Anime.js CDN -->
+  <!-- Anime.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
 
   <script>
