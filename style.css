@@ -15,3 +15,22 @@ canvas {
   height: 100vh;
   border: none;
 }
+.beer-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.beer-image img {
+  max-width: 220px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+.beer-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
