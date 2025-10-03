@@ -317,7 +317,7 @@ const Sound = (() => {
     const newHead = {x:nx, y:ny};
 
     if (isPlayer && !GOD_MODE && snake.body.some(p=>p.x===nx && p.y===ny)){
-      gameOver('Tu t’es mordu 😬');
+      gameOver('Tu t’es mordu(e) 😬');
       return;
     }
 
