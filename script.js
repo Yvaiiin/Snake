@@ -1,5 +1,5 @@
 // ===== OPTIONS RAPIDES =====
-const GOD_MODE = true;          // true = invincible (pour tests)
+const GOD_MODE = false;          // true = invincible
 const SND_ENABLED = true;        // sons on/off
 const ENEMY_ENABLED = true;      // permet de couper l'ennemi si besoin
 const TICK_RATE = 9;            // vitesse de base (ticks/s)
