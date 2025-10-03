@@ -305,7 +305,7 @@ const Sound = (() => {
     stepSnake(enemy, false);
 
     if (!GOD_MODE && ENEMY_ENABLED && (playerHitsEnemy() || enemyHeadHitsPlayer())){
-      return gameOver('Tu as touché le serpent orange.');
+      return gameOver('Il va falloir faire mieux que ça 🙃');
     }
   }
 
