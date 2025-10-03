@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Head of Publishing - Yvain</title>
+
+  <!-- Favicon serpent (emoji, pas de fichier nécessaire) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+
+  <!-- CSS externe -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- Zone Jeu (70%) -->
+    <div class="gamewrap" id="gamewrap">
+      <canvas id="board" aria-label="Jeu Snake"></canvas>
+
+      <!-- Overlay d'intro -->
+      <div class="overlay show" id="intro">
+        <div class="modal">
+          <h2>Bonjour 👋🏼</h2>
+          <p></p>
+          <p>Je m'appelle <strong>Yvain</strong> et c'est ma candidature !</p>
+          <p>J'espère qu'elle vous plaira 🙂</p>
+          <button id="startBtn">Lancer le jeu</button>
+        </div>
+      </div>
+
+      <!-- Overlay de fin -->
+      <div class="overlay" id="gameover">
+        <div class="modal">
+          <h2>Perdu !</h2>
+          <p id="reason">Il va falloir faire mieux que ça 🙃</p>
+          <p>Score : <strong id="finalScore">0</strong></p>
+          <button id="restart">Rejouer (R)</button>
+        </div>
+      </div>
+
+      <!-- Overlay CV -->
+      <div class="overlay" id="cvmodal">
+        <div class="modal">
+          <h2>Félicitations 🎉</h2>
+          <p>Vous avez accès à ma candidature !</p>
+          <a class="btn" id="cvlink" href="https://www.yvain-ramousse.fr/" target="_blank" rel="noopener">Télécharger</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cadre infos (30%) -->
+    <aside class="sidebar">
+      <header>
+        <h1>Yvain Ramousse</h1>
+         <div>
+          <span class="badge">Créatif</span>
+          <span class="badge">Autodidacte</span>
+          <span class="badge">Enthousiaste</span>
+          <span class="badge">Sociable</span>
+        </div>
+      </header>
+
+      <div class="card">
+        <strong>Score</strong>
+        <div class="score" id="score" style="font-size:28px;margin-top:6px">0</div>
+      </div>
+
+      <div class="card">
+        <strong>Règles</strong>
+        <ul style="margin:.4rem 0 .2rem 0;line-height:1.45;list-style:none;padding-left:0">
+          <li>🍏 Mangez autant de pommes que possible !</li>
+          <li>🍏 Le monde est toroïdal : pas de bord 🙃</li>
+          <li>🍏 Attention un autre <b style="color:var(--danger)">serpent</b> rôde...</li>
+          <li>🍏 Chaque pomme délivre une compétence ✨</li>
+          <li>🍎 La onzième pomme offre une surprise 🎁</li>
+          <p></p>
+          <span class="pill">Contrôles : ← ↑ → ↓</span>
+        </ul>
+      </div>
+
+      <!-- Bloc Compétences -->
+      <div class="card" id="skillsCard">
+        <strong>Compétences</strong>
+        <br></br>
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill-bubble" data-skill="1"><span class="label">Management 🤝🏼</span><span class="skill-index">1</span></div>
+          <div class="skill-bubble" data-skill="2"><span class="label">Suite Adobe ✨</span><span class="skill-index">2</span></div>
+          <div class="skill-bubble" data-skill="3"><span class="label">Marketing ⚙️</span><span class="skill-index">3</span></div>
+          <div class="skill-bubble" data-skill="4"><span class="label">Communication 🗞️</span><span class="skill-index">4</span></div>
+          <div class="skill-bubble" data-skill="5"><span class="label">Bases HTML/CSS/JS</span><span class="skill-index">5</span></div>
+          <div class="skill-bubble" data-skill="6"><span class="label">KPI / ROI / P&L 📈</span><span class="skill-index">6</span></div>
+          <div class="skill-bubble" data-skill="7"><span class="label">Stratégie digitale 🤖</span><span class="skill-index">7</span></div>
+          <div class="skill-bubble" data-skill="8"><span class="label">Gestion de projet 🚀</span><span class="skill-index">8</span></div>
+          <div class="skill-bubble" data-skill="9"><span class="label">Pilotage budgétaire</span><span class="skill-index">9</span></div>
+          <div class="skill-bubble" data-skill="10"><span class="label">Injouable sur CS 1.6</span><span class="skill-index">10</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- JS externe -->
+  <script src="script.js"></script>
+</body>
+</html>

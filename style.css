@@ -1,0 +1,177 @@
+:root{
+  --bg:#0b0f1a;
+  --panel:#0f1629;
+  --line:#223054;
+  --text:#e7ecff;
+  --accent:#7dd3fc;
+  --danger:#ff8c42;
+  --good:#aaf683;
+
+  --board-bg:#0b1233;
+  --board-grid:#1c2754;
+  --player:#7cf;
+  --enemy:#ff8c1a;
+
+  --skill-locked:#1a223d;
+  --skill-locked-border:#27335a;
+  --skill-active:#142042;
+  --skill-active-border:#1f2a4a;
+  --skill-text:#cfe3ff;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+}
+
+/* --- Mise en page 70% / 30% --- */
+.layout{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:70vw 30vw
+}
+@media (max-width: 900px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{order:-1}
+}
+
+/* Zone Jeu */
+.gamewrap{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+  background:#071129
+}
+.gamewrap canvas{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%
+}
+#board{z-index:1}
+
+/* Sidebar */
+.sidebar{
+  padding:20px;
+  background:var(--panel);
+  border-left:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:16px
+}
+h1{font-size:20px;margin:0 0 2px}
+.badge{
+  display:inline-block;
+  font-size:12px;
+  border:1px solid var(--line);
+  padding:4px 8px;
+  border-radius:999px;
+  opacity:.9;
+  margin-right:6px;
+  margin-top:6px
+}
+.score{font-variant-numeric:tabular-nums}
+.card{
+  background:#0e1530;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px
+}
+.pill{
+  display:inline-block;
+  background:#142042;
+  border:1px solid #1f2a4a;
+  border-radius:999px;
+  padding:2px 8px;
+  margin:2px 4px
+}
+button{
+  appearance:none;
+  border:0;
+  background:#16213e;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer
+}
+button:hover{filter:brightness(1.1)}
+a.btn{display:inline-block;text-decoration:none;color:var(--accent)}
+
+/* Overlays */
+.overlay{
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(10,12,22,.72);
+  backdrop-filter:blur(2px);
+  z-index:5
+}
+.overlay.show{display:flex}
+.modal{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:22px;
+  border-radius:16px;
+  text-align:center;
+  max-width:520px
+}
+.modal h2{margin:.2rem 0 .4rem}
+.modal p{opacity:.92;margin:.4rem 0 1rem}
+
+/* === Compétences === */
+#skillsGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 bulles par ligne */
+  gap: 8px;
+}
+
+#skillsGrid .skill-bubble{
+  width: auto; 
+  height: auto; 
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--skill-locked-border);
+  background: var(--skill-locked);
+  color: var(--skill-text);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  overflow: hidden;
+  transition: all .25s ease;
+}
+
+#skillsGrid .skill-bubble .label{
+  opacity: 0;                /* caché tant que non débloqué */
+  filter: blur(3px);
+  transition: opacity .25s ease, filter .25s ease;
+  white-space: nowrap;       /* texte sur une seule ligne */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* … si trop long */
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+#skillsGrid .skill-bubble.active{
+  background: var(--skill-active);
+  border-color: var(--skill-active-border);
+}
+#skillsGrid .skill-bubble.active .label{
+  opacity: 1;
+  filter: none;
+}
+
+#skillsGrid .skill-bubble .skill-index{
+  margin-left: auto;
+  opacity: .5;
+  font-size: 11px;
+}
